@@ -1,21 +1,32 @@
 {
-  "name": "dlsvue-sp-image-picker",
-  "version": "0.0.0",
-  "private": true,
+  "name": "dls-vue",
+  "version": "0.0.1",
+  "description": "Darklord Studios Vue Library for SharePoint",
   "type": "module",
+  "main": "./dist/dlsvue.umd.js",
+  "module": "./dist/dlsvue.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/dlsvue.esm.js",
+      "require": "./dist/dlsvue.js"
+    }
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
   "scripts": {
     "dev": "vite",
     "build": "run-p type-check \"build-only {@}\" --",
     "preview": "vite preview",
     "build-only": "vite build",
-    "type-check": "vue-tsc --build --force",
+    "type-check": "vue-tsc --noEmit -p tsconfig.app.json --composite false",
     "lint": "eslint . --fix",
     "format": "prettier --write src/"
   },
+  "author": "dan@darklordstudios.com",
   "peerDependencies": {
-    "vue": "^3.5.12"
-  },
-  "dependencies": {
     "@primevue/themes": "4.2.1",
     "animate.css": "4.1.1",
     "axios": "1.7.7",
